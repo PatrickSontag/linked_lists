@@ -42,13 +42,24 @@ class LinkedList {
     if (this.tail === null) this.tail = newNode;
     if (this.head !== null) newNode.next = this.head;
     this.head = newNode;
-    
+
     this.length += 1;
   }
 
   /** pop(): return & remove last item. */
 
   pop() {
+    let lastNode = this.tail;
+    let count = 0;
+    let currentNode = this.head;
+    for (let i = 1; i < this.length - 1; i++) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = null;
+    this.tail = currentNode;
+
+    this.length -= 1;
+    return lastNode;
 
   }
 
