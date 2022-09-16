@@ -74,6 +74,11 @@ class LinkedList {
   /** getAt(idx): get val at idx. */
 
   getAt(idx) {
+    let currentNode = this.head;
+    for (let i = 0; i < idx; i++) {
+      currentNode = currentNode.next;
+    }
+    return currentNode.val;
 
   }
 
