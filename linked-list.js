@@ -96,7 +96,17 @@ class LinkedList {
   /** insertAt(idx, val): add node w/val before idx. */
 
   insertAt(idx, val) {
+    let currentNode = this.head;
+    let newNode = new Node(val);
+    for (let i = 0; i < idx - 1; i++) {
+      currentNode = currentNode.next;
+    }
+    let idxNode = currentNode.next;
+    currentNode.next = newNode;
+    newNode.next = idxNode;
+    this.length ++;
 
+    return newNode;
   }
 
   /** removeAt(idx): return & remove item at idx, */
