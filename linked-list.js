@@ -130,7 +130,15 @@ class LinkedList {
   /** average(): return an average of all values in the list */
 
   average() {
-    
+    let sum = 0;
+    let currentNode = this.head;
+    for(let i = 0; i < this.length; i++) {
+      sum += currentNode.val;
+      console.log("sum", sum);
+      currentNode = currentNode.next;
+    }
+
+    return sum / this.length;
   }
 }
 
