@@ -79,7 +79,6 @@ class LinkedList {
       currentNode = currentNode.next;
     }
     return currentNode.val;
-
   }
 
   /** setAt(idx, val): set val at idx to val */
@@ -90,7 +89,7 @@ class LinkedList {
       currentNode = currentNode.next;
     }
     currentNode.val = val;
-    return currentNode;
+    // return currentNode;
   }
 
   /** insertAt(idx, val): add node w/val before idx. */
@@ -106,13 +105,26 @@ class LinkedList {
     newNode.next = idxNode;
     this.length ++;
 
-    return newNode;
+    // return newNode;
   }
 
   /** removeAt(idx): return & remove item at idx, */
 
   removeAt(idx) {
+    if (idx === 0) {
+      return this.shift(idx);
+    }
+    let currentNode = this.head;
+    for (let i = 0; i < idx - 1; i++) {
+      currentNode = currentNode.next;
+    }
+    let indexNode = currentNode.next;
+    let afterIndexNode = indexNode.next;
 
+    currentNode.next = afterIndexNode;
+    this.length --;
+
+    return indexNode;
   }
 
   /** average(): return an average of all values in the list */
