@@ -50,13 +50,12 @@ class LinkedList {
 
   pop() {
     let lastNode = this.tail;
-    let count = 0;
     let currentNode = this.head;
     for (let i = 1; i < this.length - 1; i++) {
       currentNode = currentNode.next;
     }
-    currentNode.next = null;
     this.tail = currentNode;
+    currentNode.next = null;
 
     this.length -= 1;
     return lastNode;
@@ -66,7 +65,10 @@ class LinkedList {
   /** shift(): return & remove first item. */
 
   shift() {
-
+    let firstNode = this.head;
+    this.head = firstNode.next;
+    this.length --;
+    return firstNode;
   }
 
   /** getAt(idx): get val at idx. */
